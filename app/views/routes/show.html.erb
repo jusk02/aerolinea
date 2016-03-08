@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @route.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @route.destination %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @route.duration %> H
+</p>
+
+<h2>Viajes</h2>
+<% @route.trips.each do |trip| %>
+	<li>
+	 <%= trip.route.origin%>
+	 <%= trip.route.destination%>
+	 <%= trip.date_time%>
+	 <%= trip.route.duration%>
+	 <%= link_to 'Mostrar', trip %>
+	 <%= link_to 'Borrar', trip, method: :delete, data: { confirm: 'Estas seguro?' } %>
+	
+	</li>
+	<% end %>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
+<%= link_to 'volver al inicio', root_path %>
+

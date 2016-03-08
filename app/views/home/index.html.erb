@@ -1,0 +1,49 @@
+
+
+<div class="container">
+	<div class="jumbotron">
+		<h1>Aerolinea</h1>
+		<p>Panel de administrador</p>
+	</div>	
+
+
+
+	<div class="jumbotron">
+		<p>tome la opcion del proceso que desea hacer</p>
+	</div>	
+
+	<div class="row">
+		<div class="col-sm-4">
+
+			<%= link_to "Agregar Avion", new_plane_path %>
+			<%= link_to "ver Aviones", planes_path %>
+		</div>
+		<div class="col-sm-4">
+			<%= link_to "Agregar Piloto", new_pilot_path %>
+			<%= link_to "ver Pilotos", pilots_path %>
+		</div>
+		<div class="col-sm-4">
+			<%= link_to "Agregar Ruta", new_route_path %>
+			<%= link_to "ver Rutas", routes_path %>
+
+		</div>
+		<div class="col-sm-4">
+			<%= link_to "Creart Viaje", new_trip_path %>
+			<%= link_to "Ver Viajes", trips_path %>
+
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+	<div class="jumbotron">
+
+	<p>compra de tiquetes</p>
+	<div class="col-sm-4">
+			<%= link_to "Comprar tiquetes", new_passenger_path %>
+			
+		</div>
+
+</div>
+	
+</div>

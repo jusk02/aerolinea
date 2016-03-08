@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pilot.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @pilot.lastname %>
+</p>
+
+<p>
+  <strong>Identification:</strong>
+  <%= @pilot.identification %>
+</p>
+
+<h2>Viajes</h2>
+<% @pilot.trips.each do |trip| %>
+	<li>
+	 <%= trip.route.origin%>
+	 <%= trip.route.destination%>
+	 <%= trip.date_time%>
+	 <%= trip.route.duration%>H
+	 <%= link_to 'Mostrar', trip %>
+	 <%= link_to 'Borrar', trip, method: :delete, data: { confirm: 'Estas seguro?' } %>
+	
+	</li>
+	<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
+<%= link_to 'Back', pilots_path %>
+<%= link_to 'volver al inicio', root_path %>

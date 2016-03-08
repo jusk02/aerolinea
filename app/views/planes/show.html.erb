@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @plane.number %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @plane.model %>
+</p>
+
+<h2>Viajes</h2>
+<% @plane.trips.each do |trip| %>
+	<li>
+	 <%= trip.route.origin%>
+	 <%= trip.route.destination%>
+	 <%= trip.date_time%>
+	 <%= link_to 'Mostrar', trip %>
+	 <%= link_to 'Borrar', trip, method: :delete, data: { confirm: 'Estas seguro?' } %>
+	
+	</li>
+	<% end %>
+
+<%= link_to 'Edit', edit_plane_path(@plane) %> |
+<%= link_to 'Back', planes_path %>
+<%= link_to 'volver al inicio', root_path %>
