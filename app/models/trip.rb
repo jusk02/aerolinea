@@ -6,6 +6,14 @@ has_many :passengers
 
 validate :date_time_cannot_be_in_the_past
 
+after_validation :set_landing_time, on: [ :create, :update ]
+
+	def set_landing_time
+	@fecha= self.date_time + (self.route.duration * 3600)
+
+	self.landing_time= @fecha
+	end
+
 	def date_time_cannot_be_in_the_past
 		if date_time < Date.today
 			
@@ -13,14 +21,5 @@ validate :date_time_cannot_be_in_the_past
 		end
 	end
 
-before_save :set_landing_time, on: [ :create, :update ]
 
-
-	def float_to_time
-
-	end
-	def set_landing_time
-	@fecha= Time.date_time.to_f
-	self.landing_time= @fecha
-	end
 end
